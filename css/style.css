@@ -1,0 +1,123 @@
+/* Custom Stylesheet */
+
+ .icon-block {
+    padding: 0 15px;
+  }
+  .icon-block .material-icons {
+      font-size: inherit;
+  }
+
+  /* GOOGLE MAP STYLES */
+  #map {
+    width: 100%;
+    z-index: 1; 
+    min-height: 775px;
+  }
+  
+  
+/* NAVIGATION STYLES */
+nav .brand-logo {
+  color: #fff;
+}
+
+/* Changes main nav background color */
+.light-blue {
+  background-color: rgba(91, 192, 222, 1) !important;
+}
+
+/* Changes background color of nav search bar */
+nav {
+  background-color: #7A309C;
+}
+
+/* Styles slide out nav on mobile */
+.side-nav {
+  background-color: rgba(91, 192, 222, 1);
+}
+
+.side-nav li > a {
+  color: #fff;
+}
+
+.mobile {
+  line-height: 1.5rem;
+  padding: 0 30px;
+  margin: 0;
+}
+
+#nav-mobile li ol li {
+  line-height: 1.5rem;
+  padding: 0 30px;
+  margin: 0;
+}
+
+/* COLLAPSIBLE NAV */
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid rgba(91, 192, 222, 1);
+  box-shadow: 0 1px 0 0 rgba(91, 192, 222, 1);
+}
+
+.collapsible,
+.collapsible-header {
+  padding: 0;
+  margin: 0;
+}
+.collapsible-header {
+  background-color: #eeeeee;
+}
+
+.collapsible-body {
+  padding: 2rem;
+}
+
+.add-padding {
+  padding: 1rem;
+}
+
+
+/* BACKGROUND STYLES */
+.yellow {
+  background-color: #FFD20D !important;
+}
+
+/* TEXT & LINK STYLES */
+  a:hover {
+    color: #FFD20D;
+  }
+
+  .blue-text {
+    color: rgba(91, 192, 222, 1) !important;
+  }
+
+/*  BUTTON STYLES */
+/* Styles floating category buttons */
+.btn,
+.btn:focus,
+.btn-large {
+  background-color: #7A309C;
+}
+
+.btn:hover,
+.btn-large:hover {
+  background-color: #62267D !important;
+  color: #fff;
+}
+
+.waves-effect.waves-purple .waves-ripple {
+   background-color: rgba(98, 38, 125, 0.65);
+ }
+
+/* FLOATING BUTTON STYLES */
+/* Styles floating category buttons */
+.btn-floating {
+  margin-bottom: 15px;
+  background-color: #7A309C;
+}
+
+.btn-floating:hover {
+  background-color: #FFD20D;
+}
+
+
+
+
