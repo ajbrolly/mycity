@@ -2,10 +2,9 @@ $(document).ready(function () {
     // Initializes ToolTips for Category Search Buttons
     $('.tooltipped').tooltip({ delay: 50 });
 
-    // Initializes Collapsible Search Bar & page How-To
+    // Initializes Collapsible Search Bar & How-To
     $('.collapsible').collapsible();
 
-});
 
     // var config = {
     //     apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
@@ -389,3 +388,4 @@ $(document).ready(function () {
     // });
 
 
+});

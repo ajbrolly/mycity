@@ -82,6 +82,7 @@ $(document).ready(function () {
             // User is signed in or token was refreshed.
             console.log('User signed in.');
             upcomingEvents();
+            $('#profHOwTo').hide();
             $('#login-message').empty();
             $('#profile-page').show();
             $('#user-name').text(', ' + user.displayName);
@@ -110,7 +111,7 @@ $(document).ready(function () {
             $('#user-name').empty();
             $('#prof-pic').empty();
             $('#favorites').empty();
-            var noUser = ('<h5>' + 'Sign in to see your favorites.' + '</h5>');
+            var noUser = ('<h5>Sign in to access your profile page.</h5>');
             $('#login-message').append(noUser);
         }
     });

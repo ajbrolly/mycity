@@ -17,130 +17,78 @@
 
 
 <body>
-<!-- Collapsible Navigation -->
-<ul class="collapsible" data-collapsible="accordion" role="navigation">
-	<li>
-		<!-- Main Site Navigation -->
-		<div class="collapsible-header">
-			<nav class="light-blue" role="navigation">
-				<div class="nav-wrapper container">
-					<a id="logo-container" href="index.html" class="brand-logo">MyCLE</a>
-					<ul class="right hide-on-med-and-down">
-						<li>
-							<a href="index.html">Home</a>
-						</li>
-						<li>
-							<a href="explore.html">Explore</a>
-						</li>
-						<li>
-							<a href="profile.html">Profile</a>
-						</li>
-						<li>
-							<a href="#">Profile How-To</a>
-						</li>
-						<button type="button" class="waves-effect waves-light btn" id="quickstart-sign-in">Sign In</button>
-					</ul>
-
-					<ul id="nav-mobile" class="side-nav">
-						<li>
-							<a href="index.html">Home</a>
-						</li>
-						<li>
-							<a href="explore.html">Explore</a>
-						</li>
-						<li>
-							<a href="profile.html">Profile</a>
-						</li>
-						<button type="button" class="waves-effect waves-light btn" id="quickstart-sign-in"></button>
-						<hr>
-						<li>
-							<a href="#">Profile How-To</a>
-							<ol>
-								<li>Start exploring by using one of our quick-search buttons, located in the bottom right corner of the screen.
-									You can use these buttons to search for Cleveland restaurants, bars, entertainment, museums, and shopping.</li>
-								<li>For more search options, tap the right corner of the blue header on the Explore page to open the custom
-									Search bar. This allows you to search for any category we haven't already covered with our quick-search
-									buttons.</li>
-							</ol>
-						</li>
-					</ul>
-					<a href="#" data-activates="nav-mobile" class="button-collapse">
-						<i class="material-icons">menu</i>
-					</a>
-				</div>
-			</nav>
-		</div>
-
-		<!-- Collapsible Menu -->
-		<div class="collapsible-body">
-			<ul class="collapsible" data-collapsible="accordion">
+	<!-- Main Site Navigation -->
+	<nav class="light-blue" role="navigation">
+		<div class="nav-wrapper container">
+			<a id="logo-container" href="index.html" class="brand-logo">MyCLE</a>
+			<ul class="right hide-on-med-and-down">
 				<li>
-					<div class="collapsible-header add-padding">
-						<i class="material-icons">search</i>Search</div>
-					<div class="collapsible-body">
-						<span>
-							<!-- Search Bar -->
-							<div class="input-field col s6">
-								<input placeholder="Type a Search Term Here" id="searchInput" type="text" class="validate">
-							</div>
-							<button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Submit
-								<i class="material-icons right">send</i>
-							</button>
-						</span>
-					</div>
+					<a href="index.html">Home</a>
 				</li>
 				<li>
-					<div class="collapsible-header add-padding">
-						<i class="material-icons">place</i>How-To</div>
-					<div class="collapsible-body">
-						<!-- How-To Instructions -->
-						<div class="how-to">
-							<ol>
-								<li>Click on the
-									<span>
-										<a class="btn-floating btn-large">
-											<i class="material-icons">menu</i>
-										</a>
-									</span> button in the bottom right corner of the screen.</li>
-								<p>Click anywhere on the navigation bar above to open the custom Search bar. This allows you to search for
-									any category we haven't already covered with our Quick-Search buttons. You can also use our quick-search
-									buttons, located in the bottom right corner of the screen.</p>
-							</ol>
-						</div>
-					</div>
+					<a href="explore.html">Explore</a>
+				</li>
+				<li>
+					<a href="profile.html">Profile</a>
+				</li>
+				<li>
+					<a href="#">Profile How-To</a>
+				</li>
+				<button type="button" class="waves-effect waves-light btn" id="quickstart-sign-in">Sign In</button>
+			</ul>
+
+			<ul id="nav-mobile" class="side-nav">
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="explore.html">Explore</a>
+				</li>
+				<li>
+					<a href="profile.html">Profile</a>
+				</li>
+				<button type="button" class="waves-effect waves-light btn" id="quickstart-sign-in"></button>
+				<hr>
+				<li>
+					<a href="#">Profile How-To</a>
+					<ol>
+						<li>Start exploring by using one of our quick-search buttons, located in the bottom right corner of the screen. You can
+							use these buttons to search for Cleveland restaurants, bars, entertainment, museums, and shopping.</li>
+						<li>For more search options, tap the right corner of the blue header on the Explore page to open the custom Search bar.
+							This allows you to search for any category we haven't already covered with our quick-search buttons.
+						</li>
+					</ol>
 				</li>
 			</ul>
-		</div> <!-- .collapsible-body -->
-	</li> <!-- collapsilbe nav li -->
-</ul>
+			<a href="#" data-activates="nav-mobile" class="button-collapse">
+				<i class="material-icons">menu</i>
+			</a>
+		</div>
+	</nav>
 
 
-<div id="map"></div>
 
-	<div class="section no-pad-bot" id="index-banner">
-		<div class="container">
-			<br>
-			<br>
-			<h1 class="header center blue-text">MyCLE</h1>
-			<div class="row center">
-				<h5 class="header col s12 light flow-text">Explore Cleveland! MyCLE let's you create a curated list of your favorite spots in the city and save new places you
-					want to try. Everything is saved to your personal profile page!</h5>
-				<h5>Create a free profile today!</h5>
+	<div id="map"></div>
+
+	<div class="header">
+		<div class="row">
+			<div class="container">
+				<div class="col s8">
+					<h2>Hello<span id="user-name"></span>!</h2>
+				</div>
+				<div class="col s4" id="prof-pic">
+
+				</div>
+				<div id="login-message" class="col s12"></div>
 			</div>
-			<div class="row center">
-				<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light">Get Started</a>
-			</div>
-			<br>
-			<br>
-
 		</div>
 	</div>
 
-
-	<div class="container">
+	<div class="container" id="profHOwTo">
 		<div class="section">
-
 			<!--   Icon Section   -->
+			<br>
+			<br>
 			<div class="row">
 				<div class="col s12 m4">
 					<div class="icon-block">
@@ -149,8 +97,8 @@
 						</h2>
 						<h5 class="center">Speeds up development</h5>
 
-						<p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.
-							Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+						<p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally,
+							we refined animations and transitions to provide a smoother experience for developers.</p>
 					</div>
 				</div>
 
@@ -161,9 +109,9 @@
 						</h2>
 						<h5 class="center">User Experience Focused</h5>
 
-						<p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates
-							components and animations that provide more feedback to users. Additionally, a single underlying responsive
-							system across all platforms allow for a more unified user experience.</p>
+						<p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components
+							and animations that provide more feedback to users. Additionally, a single underlying responsive system across all
+							platforms allow for a more unified user experience.</p>
 					</div>
 				</div>
 
@@ -174,16 +122,35 @@
 						</h2>
 						<h5 class="center">Easy to work with</h5>
 
-						<p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are
-							also always open to feedback and can answer any questions a user may have about Materialize.</p>
+						<p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also
+							always open to feedback and can answer any questions a user may have about Materialize.</p>
 					</div>
 				</div>
 			</div>
-
+			<br>
+			<br>
 		</div>
-		<br>
-		<br>
+
+		<div class="container">
+
+			<div class="row" id="profile-page">
+				<div class="col-md-4">
+					<h2>My Favorites</h2>
+					<div id="favorites"></div>
+				</div>
+				<div class="col-md-4">
+					<h2>Recent Visits</h2>
+					<div id="recents"></div>
+				</div>
+				<div class="col-md-4">
+					<h2>Upcoming Events</h2>
+					<div id="recommendations"></div>
+				</div>
+			</div>
+		</div>
+		<div class="push"></div>
 	</div>
+	<!-- close .wrapper -->
 
 	<footer class="page-footer yellow">
 		<div class="container">
