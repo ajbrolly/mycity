@@ -5,15 +5,6 @@ $(document).ready(function(){
     // Initializes Collapsible Search Bar & page How-To
     $('.collapsible').collapsible();
 
-    // Initializes 'Start Exploring' modal on Explore.html
-    $('.modal').modal({
-        dismissible: true, // Modal can be dismissed by clicking outside of the modal
-        opacity: .2, // Opacity of modal background
-        startingTop: '4%', // Starting top style attribute
-        endingTop: '10%', // Ending top style attribute
-      }
-    );
-
   });
 
 
@@ -215,8 +206,7 @@ function callback(results, status) {
 		}
 	}
 };
-// Creates a new marker and display it on the map
-
+// Creates a new marker and displays it on the map
 function createMarker(place) {
 	var placeLoc = place.geometry.location;
 	marker = new google.maps.Marker({
@@ -226,14 +216,15 @@ function createMarker(place) {
 	google.maps.event.addListener(marker, 'click', function() {
 		console.log(place);
         if (place.vicinity) {
-            infowindow.setContent('<div class="infoWindow"><h4>' + place.name + '</h4><p>' + place.vicinity + '</p><p>' + 'Rating: ' + place.rating + '</p>' + '<button id="save">' + 'Save' + '</button>' + '</div>');
+            infowindow.setContent('<div class="infoWindow"><h5 class="center">' + place.name + '</h5><p>' + place.vicinity + '</p><p>' + 'Rating: ' + place.rating + '</p>' + '<button id="save">' + 'Save' + '</button>' + '</div><div id="save-msg"></div>');
         }
         if (place.formatted_address) {
-            infowindow.setContent('<div class="infoWindow"><h4>' + place.name + '</h4><p>' + place.formatted_address + '</p><p>' + 'Rating: ' + place.rating + '</p>' + '<button id="save">' + 'Save' + '</button>' + '</div>');
+            infowindow.setContent('<div class="infoWindow"><h5 class="center">' + place.name + '</h5><p>' + place.formatted_address + '</p><p>' + 'Rating: ' + place.rating + '</p>' + '<button id="save">' + 'Save' + '</button>' + '</div><div id="save-msg"></div>');
         }
 		infowindow.open(map, this);
 		$('#save').on('click', function() {
-			var newName = place.name;
+            $('#save-msg').append('Saved!');
+            var newName = place.name;
 			var newId = place.place_id;
 			console.log(newName);
 			console.log(newId);
@@ -259,15 +250,8 @@ $('#restaurants').on('click', function() {
 		location: cleveland,
 		radius: 10000,
 		type: ['restaurant']
-	}, callback);
-});
-
-// Bars Search Button
-$('#bars').on('click', function() {
-	initMap();
-	infowindow = new google.maps.InfoWindow();
-	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch({
+    }, callback);
+    service.nearbySearch({
 		location: cleveland,
 		radius: 10000,
 		type: ['bar']
@@ -351,56 +335,56 @@ $('#searchButton').on('click', function() {
 
 
 // Code to sign in with Google profile via Firebase
-// var user;
-// var uid;
+var user;
+var uid;
 
-// function toggleSignIn() {
-//     if (!firebase.auth().currentUser) {
-//         var provider = new firebase.auth.GoogleAuthProvider();
-//         firebase.auth().signInWithPopup(provider).then(function(result) {
-//             var token = result.credential.accessToken;
-//             user = result.user;
-//         }).catch(function(error) {
-//             var errorCode = error.code;
-//             var errorMessage = error.message;
-//             var email = error.email;
-//             var credential = error.credential;
-//             if (errorCode === 'auth/account-exists-with-different-credential') {
-//                 console.log('User already signed up with a different auth provider for that email.');
-//             } else {
-//                 console.error(error);
-//             }
-//         });
-//     } else {
-//         firebase.auth().signOut();
-//     }
-//     document.getElementById('quickstart-sign-in').disabled = true;
-// };
+function toggleSignIn() {
+    if (!firebase.auth().currentUser) {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            var token = result.credential.accessToken;
+            user = result.user;
+        }).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+            if (errorCode === 'auth/account-exists-with-different-credential') {
+                console.log('User already signed up with a different auth provider for that email.');
+            } else {
+                console.error(error);
+            }
+        });
+    } else {
+        firebase.auth().signOut();
+    }
+    document.getElementById('quickstart-sign-in').disabled = true;
+};
 
-// function initApp() {
-//     firebase.auth().onAuthStateChanged(function(user) {
-//         if (user) {
-//             // User is signed in.
-//             console.log(user);
-//             uid = user.uid;
-//             document.getElementById('quickstart-sign-in').textContent = 'Sign out';
-//         } else {
-//             document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
-//         }
-//         document.getElementById('quickstart-sign-in').disabled = false;
-//     });
-//     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-// };
+function initApp() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            console.log(user);
+            uid = user.uid;
+            document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+        } else {
+            document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+        }
+        document.getElementById('quickstart-sign-in').disabled = false;
+    });
+    document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+};
 
-// window.onload = function() {
-//     initApp();
-// };
+window.onload = function() {
+    initApp();
+};
 
-// firebase.auth().onIdTokenChanged(function(user) {
-//     if (user) {
-//         // User is signed in or token was refreshed.
-//         console.log('User signed in.')
-//     } else {
-//         console.log('No user signed in.');
-//     }
-// });
+firebase.auth().onIdTokenChanged(function(user) {
+    if (user) {
+        // User is signed in or token was refreshed.
+        console.log('User signed in.')
+    } else {
+        console.log('No user signed in.');
+    }
+});
