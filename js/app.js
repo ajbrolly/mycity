@@ -5,6 +5,7 @@ $(document).ready(function () {
     // Initializes Collapsible Search Bar & page How-To
     $('.collapsible').collapsible();
 
+});
 
     // var config = {
     //     apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
@@ -388,4 +389,3 @@ $(document).ready(function () {
     // });
 
 
-});
