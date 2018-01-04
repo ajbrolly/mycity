@@ -81,11 +81,11 @@ $(document).ready(function () {
         if (user) {
             // User is signed in or token was refreshed.
             console.log('User signed in.');
-            upcomingEvents();
-            $('#profHOwTo').hide();
+            // upcomingEvents();
+            $('#profHowTo').empty();
             $('#login-message').empty();
             $('#profile-page').show();
-            $('#user-name').text(', ' + user.displayName);
+            $('#user-name').append(', ' + user.displayName);
             $('#prof-pic').append('<img src="' + user.photoURL + '" alt="Profile Picture" />');
             $('#favorites').empty();
             database.ref().on('child_added', function (snapshot) {
