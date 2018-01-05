@@ -92,44 +92,44 @@ $(document).ready(function () {
 
 
     // Profile Page
-    firebase.auth().onIdTokenChanged(function (user) {
-        if (user) {
-            // User is signed in or token was refreshed.
-            console.log('User signed in.');
-            // upcomingEvents();
-            $('#profHowTo').empty();
-            $('#login-message').empty();
-            $('#profile-page').show();
-            $('#user-name').append(', ' + user.displayName);
-            $('#prof-pic').append('<img src="' + user.photoURL + '" alt="Profile Picture" />');
-            $('#favorites').empty();
-            database.ref().on('child_added', function (snapshot) {
-                var savedPlace = snapshot.val();
-                var favePlace = savedPlace.id;
-                var recent = savedPlace.recent;
-                var key = snapshot.key;
-                console.log('Key: ' + key + ' Location: ' + favePlace);
-                databaseKeys.push(key);
-                console.log(databaseKeys);
-                if (uid === savedPlace.user) {
-                    console.log(savedPlace);
-                    if (recent === false) {
-                        logPlaceDetails(favePlace);
-                    } else if (recent === true) {
-                        logRecentDetails(favePlace);
-                    }
-                }
-            });
-        } else {
-            console.log('No user signed in.');
-            $('#profile-page').hide();
-            $('#user-name').empty();
-            $('#prof-pic').empty();
-            $('#favorites').empty();
-            var noUser = ('<h5>Sign in to access your profile page.</h5>');
-            $('#login-message').append(noUser);
-        }
-    });
+    // firebase.auth().onIdTokenChanged(function (user) {
+    //     if (user) {
+    //         // User is signed in or token was refreshed.
+    //         console.log('User signed in.');
+    //         // upcomingEvents();
+    //         $('#profHowTo').empty();
+    //         $('#login-message').empty();
+    //         $('#profile-page').show();
+    //         $('#user-name').append(', ' + user.displayName);
+    //         $('#prof-pic').append('<img src="' + user.photoURL + '" alt="Profile Picture" />');
+    //         $('#favorites').empty();
+    //         database.ref().on('child_added', function (snapshot) {
+    //             var savedPlace = snapshot.val();
+    //             var favePlace = savedPlace.id;
+    //             var recent = savedPlace.recent;
+    //             var key = snapshot.key;
+    //             console.log('Key: ' + key + ' Location: ' + favePlace);
+    //             databaseKeys.push(key);
+    //             console.log(databaseKeys);
+    //             if (uid === savedPlace.user) {
+    //                 console.log(savedPlace);
+    //                 if (recent === false) {
+    //                     logPlaceDetails(favePlace);
+    //                 } else if (recent === true) {
+    //                     logRecentDetails(favePlace);
+    //                 }
+    //             }
+    //         });
+    //     } else {
+    //         console.log('No user signed in.');
+    //         $('#profile-page').hide();
+    //         $('#user-name').empty();
+    //         $('#prof-pic').empty();
+    //         $('#favorites').empty();
+    //         var noUser = ('<h5>Sign in to access your profile page.</h5>');
+    //         $('#login-message').append(noUser);
+    //     }
+    // });
 
 
 });
