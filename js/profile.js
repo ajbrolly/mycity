@@ -16,6 +16,8 @@
 // var databaseKeys = [];
 var count = 0;
 
+$('#map').hide();
+
 function logPlaceDetails(placeId) {
     var service = new google.maps.places.PlacesService(document.getElementById('map'));
     service.getDetails({
