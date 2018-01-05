@@ -166,73 +166,72 @@ $(document).ready(function () {
         document.getElementById('quickstart-sign-in').disabled = false;
     });
     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-};
 
-window.onload = function () {
-    initApp();
-};
+    window.onload = function () {
+        initApp();
+    };
 
-firebase.auth().onIdTokenChanged(function (user) {
-    if (user) {
-        // User is signed in or token was refreshed.
-        console.log('User signed in.');
-        upcomingEvents();
-        $('#login-message').empty();
-        $('#profile-page').show();
-        $('#user-name').text(', ' + user.displayName);
-        $('#prof-pic').append('<img src="' + user.photoURL + '" alt="Profile Picture" />');
-        $('#favorites').empty();
-        database.ref().on('child_added', function (snapshot) {
-            var savedPlace = snapshot.val();
-            var favePlace = savedPlace.id;
-            var recent = savedPlace.recent;
-            var key = snapshot.key;
-            console.log('Key: ' + key + ' Location: ' + favePlace);
-            databaseKeys.push(key);
-            console.log(databaseKeys);
-            if (uid === savedPlace.user) {
-                console.log(savedPlace);
-                if (recent === false) {
-                    logPlaceDetails(favePlace);
-                } else if (recent === true) {
-                    logRecentDetails(favePlace);
+    firebase.auth().onIdTokenChanged(function (user) {
+        if (user) {
+            // User is signed in or token was refreshed.
+            console.log('User signed in.');
+            upcomingEvents();
+            $('#login-message').empty();
+            $('#profile-page').show();
+            $('#user-name').text(', ' + user.displayName);
+            $('#prof-pic').append('<img src="' + user.photoURL + '" alt="Profile Picture" />');
+            $('#favorites').empty();
+            database.ref().on('child_added', function (snapshot) {
+                var savedPlace = snapshot.val();
+                var favePlace = savedPlace.id;
+                var recent = savedPlace.recent;
+                var key = snapshot.key;
+                console.log('Key: ' + key + ' Location: ' + favePlace);
+                databaseKeys.push(key);
+                console.log(databaseKeys);
+                if (uid === savedPlace.user) {
+                    console.log(savedPlace);
+                    if (recent === false) {
+                        logPlaceDetails(favePlace);
+                    } else if (recent === true) {
+                        logRecentDetails(favePlace);
+                    }
                 }
-            }
-        });
-    } else {
-        console.log('No user signed in.');
-        $('#profile-page').hide();
-        $('#user-name').empty();
-        $('#prof-pic').empty();
-        $('#favorites').empty();
-        var noUser = ('<h5>' + 'Sign in to see your favorites.' + '</h5>');
-        $('#login-message').append(noUser);
-    }
-});
-
-function upcomingEvents() {
-    var queryURL = 'https://app.ticketmaster.com/discovery/v2/events.json?size=5&city=cleveland&apikey=xTXoZckO39bpw42IEjyvpBl3eJGMrOtG';
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-    }).done(function (response) {
-        console.log(response);
-        for (i = 0; i < 5; i++) {
-            var event = response._embedded.events[i];
-            var panel = $('<div class="panel panel-default">');
-            var div = $('<div class="panel-body">');
-            div.append('<strong>' + event.name + '</strong>' + '<br />');
-            div.append('On ' + event.dates.start.localDate + ' at ' + event.dates.start.localTime + '<br />');
-            div.append(event._embedded.venues[0].name + '<br />');
-            div.append('<a href="' + event.url + '" target="_blank">' + 'Buy tickets' + '</a>' + '<br />');
-            panel.append(div);
-            $('#recommendations').append(panel);
+            });
+        } else {
+            console.log('No user signed in.');
+            $('#profile-page').hide();
+            $('#user-name').empty();
+            $('#prof-pic').empty();
+            $('#favorites').empty();
+            var noUser = ('<h5>' + 'Sign in to see your favorites.' + '</h5>');
+            $('#login-message').append(noUser);
         }
-    }).fail(function (err) {
-        throw err;
-        console.log('ERROR!');
     });
-};
+
+    function upcomingEvents() {
+        var queryURL = 'https://app.ticketmaster.com/discovery/v2/events.json?size=5&city=cleveland&apikey=xTXoZckO39bpw42IEjyvpBl3eJGMrOtG';
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).done(function (response) {
+            console.log(response);
+            for (i = 0; i < 5; i++) {
+                var event = response._embedded.events[i];
+                var panel = $('<div class="panel panel-default">');
+                var div = $('<div class="panel-body">');
+                div.append('<strong>' + event.name + '</strong>' + '<br />');
+                div.append('On ' + event.dates.start.localDate + ' at ' + event.dates.start.localTime + '<br />');
+                div.append(event._embedded.venues[0].name + '<br />');
+                div.append('<a href="' + event.url + '" target="_blank">' + 'Buy tickets' + '</a>' + '<br />');
+                panel.append(div);
+                $('#recommendations').append(panel);
+            }
+        }).fail(function (err) {
+            throw err;
+            console.log('ERROR!');
+        });
+    };
 
 
 });
