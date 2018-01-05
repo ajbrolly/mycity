@@ -1,3 +1,22 @@
+var map;
+var cleveland;
+var marker;
+var infowindow;
+var service;
+
+function initMap() {
+
+} // now it IS a function and it is in global
+
+$(() => {
+    initMap = function () {
+        // your code like...
+        var map = new google.maps.Map(document.getElementById('map'), { ...});
+        // and other stuff...
+    }
+})
+
+
 $(document).ready(function () {
     // Initializes ToolTips for Category Search Buttons
     $('.tooltipped').tooltip({ delay: 50 });
@@ -19,15 +38,16 @@ $(document).ready(function () {
 
     // var database = firebase.database();
 
-    var map;
-    var cleveland;
-    var marker;
-    var infowindow;
-    var service;
+    // var map;
+    // var cleveland;
+    // var marker;
+    // var infowindow;
+    // var service;
 
 
     // Initiates Google map
-    function initMap() {
+    // function initMap() {
+    initMap = function () {
         cleveland = { lat: 41.49932, lng: -81.6943605 };
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
