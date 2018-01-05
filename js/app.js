@@ -215,6 +215,8 @@ $(document).ready(function () {
         });
     };
 
+    initMap();
+    
     // Pulls Google Maps results, and loops through results for a given category
     // Runs createMarker function and passes in Google Maps results
     function callback(results, status) {
