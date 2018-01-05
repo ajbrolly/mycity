@@ -1,5 +1,4 @@
 /* Custom Stylesheet */
-
  .icon-block {
 		padding: 0 15px;
 	}
@@ -7,17 +6,16 @@
 			font-size: inherit;
 	}
 
-	/* GOOGLE MAP STYLES */
-	#map {
-		min-width: 100%;
-		z-index: 1; 
-		min-height: 775px;
-	}
+/* GOOGLE MAP STYLES */
+#map {
+	min-width: 100%;
+	z-index: 1; 
+	min-height: 775px;
+}
 
-	.map {
-		display: none;
-	}
-	
+.map {
+	display: none;
+}
 	
 /* NAVIGATION STYLES */
 nav .brand-logo {
@@ -54,6 +52,12 @@ nav .brand-logo {
 input[type=text]:not(.browser-default):focus:not([readonly]) {
 	border-bottom: 1px solid rgba(91, 192, 222, 1);
 	box-shadow: 0 1px 0 0 rgba(91, 192, 222, 1);
+}
+
+input[type=text].valid:not(.browser-default) {
+	border-bottom: 1px solid #7A309C;
+	-webkit-box-shadow: 0 1px 0 0 #7A309C;
+    box-shadow: 0 1px 0 0 #7A309C;
 }
 
 .collapsible,
@@ -115,6 +119,11 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
 
 .btn-floating:hover {
 	background-color: #FFD20D;
+}
+
+#quickstart-mobile {
+	font-size: 1em;
+	margin-left: 15px;
 }
 
 /*  PROFILE PAGE  */

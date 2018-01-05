@@ -61,7 +61,9 @@ $(document).ready(function () {
         } else {
             firebase.auth().signOut();
         }
-        document.getElementById('quickstart-sign-in').disabled = true;
+        document.getElementsByClassName('quickstart-sign-in').disabled = true;
+        document.getElementsByClassName('quickstart-mobile').disabled = true;
+
     };
 
     function initApp() {
@@ -71,12 +73,20 @@ $(document).ready(function () {
                 console.log(user);
                 uid = user.uid;
                 document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+                document.getElementById('quickstart-mobile').textContent = 'Sign out';
+
             } else {
                 document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+                document.getElementById('quickstart-mobile').textContent = 'Sign in with Google';
+
             }
             document.getElementById('quickstart-sign-in').disabled = false;
+            document.getElementById('quickstart-mobile').disabled = false;
+
         });
         document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+        document.getElementById('quickstart-mobile').addEventListener('click', toggleSignIn, false);
+
     };
 
     initApp();
