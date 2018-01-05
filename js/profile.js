@@ -1,4 +1,4 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
     // var config = {
     //     apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
@@ -235,4 +235,4 @@ $(document).ready(function () {
     };
 
 
-});
+// });
