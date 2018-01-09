@@ -6,6 +6,11 @@
 			font-size: inherit;
 	}
 
+/* HEADER STYLES */
+h5 {
+	color: #7A309C;
+}
+
 /* GOOGLE MAP STYLES */
 #map {
 	min-width: 100%;
@@ -133,5 +138,12 @@ input[type=text].valid:not(.browser-default) {
 
 .prof-img {
 	max-width: 200px;
+}
+
+#save-msg {
+	font-size: 1em;
+	text-transform: uppercase;
+	color: #7A309C;
+	font-weight: 900;
 }
 
