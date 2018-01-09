@@ -37,8 +37,8 @@ $(document).ready(function () {
 
 
     // Initiates Google map
-    // function initMap() {
-    initMap = function () {
+    function initMap() {
+        // initMap = function () {
         cleveland = { lat: 41.49932, lng: -81.6943605 };
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
