@@ -1,19 +1,19 @@
 $(document).ready(function () {
 
-    // var config = {
-    //     apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
-    //     authDomain: 'mycity-188015.firebaseapp.com',
-    //     databaseURL: 'https://mycity-188015.firebaseio.com',
-    //     projectId: 'mycity-188015',
-    //     storageBucket: 'mycity-188015.appspot.com',
-    //     messagingSenderId: '986949142496'
-    // };
+    var config = {
+        apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
+        authDomain: 'mycity-188015.firebaseapp.com',
+        databaseURL: 'https://mycity-188015.firebaseio.com',
+        projectId: 'mycity-188015',
+        storageBucket: 'mycity-188015.appspot.com',
+        messagingSenderId: '986949142496'
+    };
 
-    // firebase.initializeApp(config);
+    firebase.initializeApp(config);
 
-    // var database = firebase.database();
+    var database = firebase.database();
 
-    // var databaseKeys = [];
+    var databaseKeys = [];
     var count = 0;
 
     function logPlaceDetails(placeId) {

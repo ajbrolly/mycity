@@ -8,15 +8,6 @@ function initMap() {
 
 } // now it IS a function and it is in global
 
-// $(() => {
-//     initMap = function () {
-//         // your code like...
-//         var map = new google.maps.Map(document.getElementById('map'), { ...});
-//         // and other stuff...
-//     }
-// })
-
-
 $(document).ready(function () {
     // Initializes ToolTips for Category Search Buttons
     $('.tooltipped').tooltip({ delay: 50 });
@@ -25,24 +16,24 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
 
 
-    // var config = {
-    //     apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
-    //     authDomain: 'mycity-188015.firebaseapp.com',
-    //     databaseURL: 'https://mycity-188015.firebaseio.com',
-    //     projectId: 'mycity-188015',
-    //     storageBucket: 'mycity-188015.appspot.com',
-    //     messagingSenderId: '986949142496'
-    // };
+    var config = {
+        apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
+        authDomain: 'mycity-188015.firebaseapp.com',
+        databaseURL: 'https://mycity-188015.firebaseio.com',
+        projectId: 'mycity-188015',
+        storageBucket: 'mycity-188015.appspot.com',
+        messagingSenderId: '986949142496'
+    };
 
-    // firebase.initializeApp(config);
+    firebase.initializeApp(config);
 
-    // var database = firebase.database();
+    var database = firebase.database();
 
-    // var map;
-    // var cleveland;
-    // var marker;
-    // var infowindow;
-    // var service;
+    var map;
+    var cleveland;
+    var marker;
+    var infowindow;
+    var service;
 
 
     // Initiates Google map
@@ -216,7 +207,7 @@ $(document).ready(function () {
     };
 
     initMap();
-    
+
     // Pulls Google Maps results, and loops through results for a given category
     // Runs createMarker function and passes in Google Maps results
     function callback(results, status) {
