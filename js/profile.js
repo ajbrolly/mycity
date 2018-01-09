@@ -187,9 +187,9 @@ $(document).ready(function () {
     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
     document.getElementById('quickstart-mobile').addEventListener('click', toggleSignIn, false);
 
-    window.onload = function () {
-        initApp();
-    };
+    // window.onload = function () {
+    //     initApp();
+    // };
 
     initApp();
 
