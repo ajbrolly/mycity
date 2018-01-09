@@ -169,7 +169,7 @@ $(document).ready(function () {
         document.getElementsByClassName('quickstart-mobile').disabled = true;
     };
 
-    // function initApp() {
+    function initApp() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
