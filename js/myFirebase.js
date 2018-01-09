@@ -1,19 +1,19 @@
-var config = {
-    apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
-    authDomain: 'mycity-188015.firebaseapp.com',
-    databaseURL: 'https://mycity-188015.firebaseio.com',
-    projectId: 'mycity-188015',
-    storageBucket: 'mycity-188015.appspot.com',
-    messagingSenderId: '986949142496'
-};
+// var config = {
+//     apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
+//     authDomain: 'mycity-188015.firebaseapp.com',
+//     databaseURL: 'https://mycity-188015.firebaseio.com',
+//     projectId: 'mycity-188015',
+//     storageBucket: 'mycity-188015.appspot.com',
+//     messagingSenderId: '986949142496'
+// };
 
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
 
-var database = firebase.database();
+// var database = firebase.database();
 
-var databaseKeys = [];
+// var databaseKeys = [];
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
     // var config = {
     //     apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
@@ -38,67 +38,67 @@ $(document).ready(function () {
     // var service;
 
     // Code to sign in with Google profile via Firebase
-    var user;
-    var uid;
+    // var user;
+    // var uid;
 
-    function toggleSignIn() {
-        if (!firebase.auth().currentUser) {
-            var provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithPopup(provider).then(function (result) {
-                var token = result.credential.accessToken;
-                user = result.user;
-            }).catch(function (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                var email = error.email;
-                var credential = error.credential;
-                if (errorCode === 'auth/account-exists-with-different-credential') {
-                    console.log('User already signed up with a different auth provider for that email.');
-                } else {
-                    console.error(error);
-                }
-            });
-        } else {
-            firebase.auth().signOut();
-        }
-        document.getElementsByClassName('quickstart-sign-in').disabled = true;
-        document.getElementsByClassName('quickstart-mobile').disabled = true;
+    // function toggleSignIn() {
+    //     if (!firebase.auth().currentUser) {
+    //         var provider = new firebase.auth.GoogleAuthProvider();
+    //         firebase.auth().signInWithPopup(provider).then(function (result) {
+    //             var token = result.credential.accessToken;
+    //             user = result.user;
+    //         }).catch(function (error) {
+    //             var errorCode = error.code;
+    //             var errorMessage = error.message;
+    //             var email = error.email;
+    //             var credential = error.credential;
+    //             if (errorCode === 'auth/account-exists-with-different-credential') {
+    //                 console.log('User already signed up with a different auth provider for that email.');
+    //             } else {
+    //                 console.error(error);
+    //             }
+    //         });
+    //     } else {
+    //         firebase.auth().signOut();
+    //     }
+    //     document.getElementsByClassName('quickstart-sign-in').disabled = true;
+    //     document.getElementsByClassName('quickstart-mobile').disabled = true;
 
-    };
+    // };
 
-    function initApp() {
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                // User is signed in.
-                console.log(user);
-                uid = user.uid;
-                document.getElementById('quickstart-sign-in').textContent = 'Sign out';
-                document.getElementById('quickstart-mobile').textContent = 'Sign out';
+    // function initApp() {
+    //     firebase.auth().onAuthStateChanged(function (user) {
+    //         if (user) {
+    //             // User is signed in.
+    //             console.log(user);
+    //             uid = user.uid;
+    //             document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+    //             document.getElementById('quickstart-mobile').textContent = 'Sign out';
 
-            } else {
-                document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
-                document.getElementById('quickstart-mobile').textContent = 'Sign in with Google';
+    //         } else {
+    //             document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+    //             document.getElementById('quickstart-mobile').textContent = 'Sign in with Google';
 
-            }
-            document.getElementById('quickstart-sign-in').disabled = false;
-            document.getElementById('quickstart-mobile').disabled = false;
+    //         }
+    //         document.getElementById('quickstart-sign-in').disabled = false;
+    //         document.getElementById('quickstart-mobile').disabled = false;
 
-        });
-        document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-        document.getElementById('quickstart-mobile').addEventListener('click', toggleSignIn, false);
+    //     });
+    //     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+    //     document.getElementById('quickstart-mobile').addEventListener('click', toggleSignIn, false);
 
-    };
+    // };
 
-    initApp();
+    // initApp();
 
-    firebase.auth().onIdTokenChanged(function (user) {
-        if (user) {
-            // User is signed in or token was refreshed.
-            console.log('User signed in.')
-        } else {
-            console.log('No user signed in.');
-        }
-    });
+    // firebase.auth().onIdTokenChanged(function (user) {
+    //     if (user) {
+    //         // User is signed in or token was refreshed.
+    //         console.log('User signed in.')
+    //     } else {
+    //         console.log('No user signed in.');
+    //     }
+    // });
 
 
     // Profile Page
@@ -142,6 +142,6 @@ $(document).ready(function () {
     // });
 
 
-});
+// });
 
 

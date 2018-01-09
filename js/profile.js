@@ -1,3 +1,18 @@
+var config = {
+    apiKey: 'AIzaSyDMqNQ9pA7C5sKkMHm8U6BAdExqtprHAwE',
+    authDomain: 'mycity-188015.firebaseapp.com',
+    databaseURL: 'https://mycity-188015.firebaseio.com',
+    projectId: 'mycity-188015',
+    storageBucket: 'mycity-188015.appspot.com',
+    messagingSenderId: '986949142496'
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+var databaseKeys = [];
+
 $(document).ready(function () {
 
     var config = {
@@ -142,7 +157,7 @@ $(document).ready(function () {
                 var email = error.email;
                 var credential = error.credential;
                 if (errorCode === 'auth/account-exists-with-different-credential') {
-                    console.log('User has already signed up with a different auth provider for that email.');
+                    console.log('User already signed up with a different auth provider for that email.');
                 } else {
                     console.error(error);
                 }
@@ -150,7 +165,8 @@ $(document).ready(function () {
         } else {
             firebase.auth().signOut();
         }
-        document.getElementById('quickstart-sign-in').disabled = true;
+        document.getElementsByClassName('quickstart-sign-in').disabled = true;
+        document.getElementsByClassName('quickstart-mobile').disabled = true;
     };
 
     // function initApp() {
@@ -160,16 +176,31 @@ $(document).ready(function () {
             console.log(user);
             uid = user.uid;
             document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+            document.getElementById('quickstart-mobile').textContent = 'Sign out';
         } else {
             document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+            document.getElementById('quickstart-mobile').textContent = 'Sign in with Google';
         }
         document.getElementById('quickstart-sign-in').disabled = false;
+        document.getElementById('quickstart-mobile').disabled = false;
     });
     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+    document.getElementById('quickstart-mobile').addEventListener('click', toggleSignIn, false);
 
     window.onload = function () {
         initApp();
     };
+
+    initApp();
+
+    firebase.auth().onIdTokenChanged(function (user) {
+        if (user) {
+            // User is signed in or token was refreshed.
+            console.log('User signed in.')
+        } else {
+            console.log('No user signed in.');
+        }
+    });
 
     firebase.auth().onIdTokenChanged(function (user) {
         if (user) {
