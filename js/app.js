@@ -355,59 +355,59 @@ $(document).ready(function () {
 
 
     // Code to sign in with Google profile via Firebase
-    // var user;
-    // var uid;
+    var user;
+    var uid;
 
     // function toggleSignIn() {
-    //     if (!firebase.auth().currentUser) {
-    //         var provider = new firebase.auth.GoogleAuthProvider();
-    //         firebase.auth().signInWithPopup(provider).then(function (result) {
-    //             var token = result.credential.accessToken;
-    //             user = result.user;
-    //         }).catch(function (error) {
-    //             var errorCode = error.code;
-    //             var errorMessage = error.message;
-    //             var email = error.email;
-    //             var credential = error.credential;
-    //             if (errorCode === 'auth/account-exists-with-different-credential') {
-    //                 console.log('User already signed up with a different auth provider for that email.');
-    //             } else {
-    //                 console.error(error);
-    //             }
-    //         });
-    //     } else {
-    //         firebase.auth().signOut();
-    //     }
-    //     document.getElementById('quickstart-sign-in').disabled = true;
-    // };
+        if (!firebase.auth().currentUser) {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function (result) {
+                var token = result.credential.accessToken;
+                user = result.user;
+            }).catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                var email = error.email;
+                var credential = error.credential;
+                if (errorCode === 'auth/account-exists-with-different-credential') {
+                    console.log('User already signed up with a different auth provider for that email.');
+                } else {
+                    console.error(error);
+                }
+            });
+        } else {
+            firebase.auth().signOut();
+        }
+        document.getElementById('quickstart-sign-in').disabled = true;
+    };
 
-    // function initApp() {
-    //     firebase.auth().onAuthStateChanged(function (user) {
-    //         if (user) {
-    //             // User is signed in.
-    //             console.log(user);
-    //             uid = user.uid;
-    //             document.getElementById('quickstart-sign-in').textContent = 'Sign out';
-    //         } else {
-    //             document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
-    //         }
-    //         document.getElementById('quickstart-sign-in').disabled = false;
-    //     });
-    //     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-    // };
+    function initApp() {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in.
+                console.log(user);
+                uid = user.uid;
+                document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+            } else {
+                document.getElementById('quickstart-sign-in').textContent = 'Sign in with Google';
+            }
+            document.getElementById('quickstart-sign-in').disabled = false;
+        });
+        document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+    };
 
-    // window.onload = function () {
-    //     initApp();
-    // };
+    window.onload = function () {
+        initApp();
+    };
 
-    // firebase.auth().onIdTokenChanged(function (user) {
-    //     if (user) {
-    //         // User is signed in or token was refreshed.
-    //         console.log('User signed in.')
-    //     } else {
-    //         console.log('No user signed in.');
-    //     }
-    // });
+    firebase.auth().onIdTokenChanged(function (user) {
+        if (user) {
+            // User is signed in or token was refreshed.
+            console.log('User signed in.')
+        } else {
+            console.log('No user signed in.');
+        }
+    });
 
 
 });
