@@ -177,6 +177,7 @@ $(document).ready(function () {
             console.log('User signed in.');
             upcomingEvents();
             $('#login-message').empty();
+            $('#profHowTo').empty();
             $('#profile-page').show();
             $('#user-name').text(', ' + user.displayName);
             $('#prof-pic').append('<img src="' + user.photoURL + '" alt="Profile Picture" />');
