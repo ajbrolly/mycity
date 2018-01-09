@@ -358,7 +358,7 @@ $(document).ready(function () {
     var user;
     var uid;
 
-    // function toggleSignIn() {
+    function toggleSignIn() {
         if (!firebase.auth().currentUser) {
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(provider).then(function (result) {
