@@ -227,10 +227,10 @@ $(document).ready(function () {
         google.maps.event.addListener(marker, 'click', function () {
             console.log(place);
             if (place.vicinity) {
-                infowindow.setContent('<div class="infoWindow"><h5>' + place.name + '</h5><p>' + place.vicinity + '</p><button id="save" class="waves-effect waves-light btn">' + 'Save' + '</button>' + '</div><div id="save-msg"></div>');
+                infowindow.setContent('<div class="infoWindow"><h5 class="purple">' + place.name + '</h5><p>' + place.vicinity + '</p><button id="save" class="waves-effect waves-light btn">' + 'Save' + '</button>' + '</div><div id="save-msg"></div>');
             }
             if (place.formatted_address) {
-                infowindow.setContent('<div class="infoWindow"><h5>' + place.name + '</h5><p>' + place.formatted_address + '</p><button id="save" class="waves-effect waves-light btn">' + 'Save' + '</button>' + '</div><div id="save-msg"></div>');
+                infowindow.setContent('<div class="infoWindow"><h5 class="purple">' + place.name + '</h5><p>' + place.formatted_address + '</p><button id="save" class="waves-effect waves-light btn">' + 'Save' + '</button>' + '</div><div id="save-msg"></div>');
             }
             infowindow.open(map, this);
             $('#save').on('click', function () {
